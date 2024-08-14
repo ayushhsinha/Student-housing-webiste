@@ -1,0 +1,15 @@
+.dialog-container {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Set background color as needed */
+  }
+  
+  .dialog-title {
+    font-size: 18px; /* Adjust the font size as needed */
+    color: #333333; /* Set title text color as needed */
+  }
+  
+  .dialog-button {
+    margin-left: 10px;
+  }
+  

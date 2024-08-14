@@ -1,0 +1,28 @@
+{
+  "name": "dormify-backend",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^0.8.0",
+    "@elysiajs/swagger": "^0.8.5",
+    "@lucia-auth/adapter-drizzle": "^1.0.2",
+    "@types/uuid": "^9.0.8",
+    "drizzle-orm": "^0.29.3",
+    "elysia": "latest",
+    "jsonwebtoken": "^9.0.2",
+    "lucia": "^3.0.1",
+    "oslo": "^1.1.0",
+    "pino": "^8.18.0",
+    "pino-pretty": "^10.3.1",
+    "postgres": "^3.4.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "drizzle-kit": "^0.20.13"
+  },
+  "module": "src/index.js"
+}

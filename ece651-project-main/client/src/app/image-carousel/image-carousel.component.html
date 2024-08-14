@@ -1,0 +1,74 @@
+<app-header></app-header>
+<!-- <div class="image-grid-fixed-container"> -->
+<div class="image-grid-container">
+  <div class="main-image">
+    <img [src]="mainImage" alt="Main image" />
+  </div>
+  <div class="side-images">
+    <div class="side-image" *ngFor="let image of sideImages">
+      <img [src]="image" alt="Side image" />
+    </div>
+  </div>
+  <div class="middle-images">
+    <div class="middle-image" *ngFor="let image of middleimage">
+      <img [src]="image" alt="middle-image" />
+    </div>
+  </div>
+</div>
+<!-- </div> -->
+<div class="enquiry-and-features-container">
+  <div class="price-info" *ngIf="rooms.length > 0">
+    <div class="price">{{ rooms[0].price }} CAD</div>
+    <div class="details">
+      <span class="bedrooms">&#128711; {{ rooms[0].beds }} Beds</span>
+      <span class="bathrooms">&#128703; {{ rooms[0].bathrooms }} Bath</span>
+    </div>
+    <button
+      mat-raised-button
+      class="enquire-button"
+      (click)="openEnquiryDialog()"
+    >
+      Enquire
+    </button>
+  </div>
+  <div
+    class="features-section"
+    *ngIf="rooms.length > 0 && rooms[0].features.length > 0"
+  >
+    <h2>Features</h2>
+    <div class="features-icons">
+      <div class="feature-item" *ngFor="let feature of rooms[0].features">
+        <mat-icon mat-list-icon>{{ feature.icon }}</mat-icon>
+        <span>{{ feature.name }}</span>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+  <!-- Existing HTML above this line -->
+
+  <div class="availability-section">
+    <h2>Availability</h2>
+    <div class="availability-buttons">
+      <!-- Replace 'unit.number' with your actual unit numbers or identifiers -->
+      <div class="availability-item" *ngFor="let unit of units">
+        <!-- <button class="availability-button">{{ unit.number }}</button> -->
+        <button
+          mat-raised-button
+          class="availability-button"
+          [ngClass]="{
+            available: unit.available,
+            'not-available': !unit.available
+          }"
+          [disabled]="!unit.available"
+          (click)="goToBooking(unit)"
+        >
+          {{ unit.number }}
+        </button>
+        <div class="availability-name">Unit {{ unit.number }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Existing HTML below this line -->
+
+<app-footer></app-footer>

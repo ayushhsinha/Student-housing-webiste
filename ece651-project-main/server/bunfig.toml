@@ -1,0 +1,5 @@
+[test]
+
+preload = ["./test/preload.test.ts"]
+coverage = true
+coverageThreshold = {lines = 0.95, functions = 0}

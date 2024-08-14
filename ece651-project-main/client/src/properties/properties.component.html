@@ -1,0 +1,108 @@
+<app-header></app-header>
+    <div class="main-imag"> 
+        <img src="assets/properties.png" alt="Properties">
+        <div class="overlay-textP">
+            <p class="roboto_YOURA">Find Your Dream Home</p>
+        </div>
+        <div class="overlay-textPD">
+            <p class="roboto_SolutionA">Dormify</p>
+        </div>
+        <div class="filter-buttons-container">
+        </div>
+    </div>
+
+<div>
+    <div class="container">
+      <div class="filter-section">
+        <div class="filter">
+          <label for="price-filter">Price:</label>
+          <select id="price-filter" class="filter-select" [(ngModel)]="filterCriteria.price">
+            <option value="all">All</option>
+          <option value="500">Less than $500</option>
+          <option value="1000">$500 - $1000</option>
+          <option value="1500">$1000 - $1500</option>
+          <option value="2000">More than $1500</option>
+        </select>
+        </div>
+    
+    
+        <!-- Bedroom filter -->
+    <div class="filter">
+        <label for="bedroom-filter">Bedrooms:</label>
+        <select id="bedroom-filter" class="filter-select" [(ngModel)]="filterCriteria.bedrooms">
+            <option value="all">All</option>
+          <option value="1">1 Bedroom</option>
+          <option value="2">2 Bedrooms</option>
+          <option value="3">3 Bedrooms</option>
+          <!-- Add more options as needed -->
+        </select>
+    </div>
+    
+        <!-- Bathroom filter -->
+        <div class="filter">
+          <label for="bathroom-filter">Bathrooms:</label>
+          <select id="bathroom-filter" class="filter-select" [(ngModel)]="filterCriteria.bathrooms">
+            <option value="all">All</option>
+          <option value="1">1 Bathroom</option>
+          <option value="2">2 Bathrooms</option>
+          <option value="3">3 Bathrooms</option>
+          <!-- Add more options as needed -->
+        </select>
+        </div>
+   
+        
+    
+        <div class="filter">
+          <label for="location-filter">Location:</label>
+          <select id="location-filter" class="filter-select" [(ngModel)]="filterCriteria.location">
+            <option value="all">All</option>
+            <!-- Iterate over distinctBuildingNames to generate options -->
+            <option *ngFor="let buildingName of distinctBuildingNames" [value]="buildingName">{{ buildingName }}</option>
+          </select>
+        </div>
+          <button class="filter-button" (click)="applyFilters()">Filter</button>
+      </div>
+    </div>
+
+      <div class="container">
+        <!-- Only display filtered properties if filter has been applied -->
+        <ng-container>
+          <div class="property" *ngFor="let property of (showFiltered ? filteredProperties : properties)">
+            <!-- Insert property display logic here -->
+                <div class="image-container" *ngIf="property.cost!=1205">
+                    <img [src]="property.images[property.currentImageIndex]" alt="Property Image">
+                    <button class="arrow left-arrow" (click)="prevImage(property)">&lt;</button>
+                    <button class="arrow right-arrow" (click)="nextImage(property)">&gt;</button>
+                </div>
+                <div class="image-container" *ngIf="property.cost==1205">
+                  <img [src]="property.images[property.currentImageIndex+1]" alt="Property Image">
+                  <button class="arrow left-arrow" (click)="prevImage(property)">&lt;</button>
+                  <button class="arrow right-arrow" (click)="nextImage(property)">&gt;</button>
+              </div>
+                <div class="details">
+                    <div class="price-details">
+                        <p class="price">Price: ${{ property.cost }} CAD</p>
+                        <button class="details-btn" (click)="navigateToRooms(property)">See Details</button>
+                      </div>
+                    <div class="listingName"><p>{{ property.listingName }}</p></div>
+                    <div class="bed-bath">
+                        <div><p>{{ property.bedrooms }} Bedrooms</p></div>
+                        <div><p>{{ property.bathrooms }} Baths</p></div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+
+
+      
+        
+     
+        <!-- Default view showing all properties if not filtered -->
+       
+
+</div>
+
+<carousel></carousel>
+<app-footer></app-footer>
+

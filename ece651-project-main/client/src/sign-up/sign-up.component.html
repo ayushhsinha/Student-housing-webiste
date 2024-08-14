@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="login-container">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="Logo" />
+    </div>
+    <div class="button-container">
+      <button
+        class="button"
+        [class.active]="activeButton === 'login'"
+        (click)="toggleButton('login')"
+      >
+        Login
+      </button>
+      <button
+        class="button"
+        [class.active]="activeButton === 'signup'"
+        (click)="toggleButton('signup')"
+      >
+        Signup
+      </button>
+    </div>
+    <div class="Form-section">
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput [formControl]="firstname" name="firstname" required />
+          @if (firstname.invalid) {
+          <mat-error>{{ getErrorfirstname() }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput [formControl]="lastname" name="lastname" required />
+          @if (lastname.invalid) {
+          <mat-error>{{ getErrorlastname() }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            [formControl]="email"
+            name="email"
+            required
+          />
+          @if (email.invalid) {
+          <mat-error>{{ getErrorMessage() }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            name="password"
+            [formControl]="password"
+            required
+          />
+          @if (password.invalid) {
+          <mat-error>{{ getErrorpassword() }}</mat-error>
+          }
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>Confirm password</mat-label>
+          <input
+            matInput
+            [type]="hide2 ? 'password' : 'text'"
+            [formControl]="confirmpassword"
+            name="confirmpassword"
+            required
+          />
+          @if (confirmpassword.invalid) {
+          <mat-error>{{ getErrorconfirmpassword() }}</mat-error>
+          }
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide2 = !hide2"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide2"
+          >
+            <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <button class="submitButton" type="submit" (click)="signup()">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

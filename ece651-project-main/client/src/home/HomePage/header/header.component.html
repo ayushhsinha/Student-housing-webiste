@@ -1,0 +1,68 @@
+<div class="header">
+  <div class="logo-left">
+    <img src="assets/1.png" alt="Logo" />
+  </div>
+
+  <div class="menu-items">
+    <!-- Use routerLink directive to navigate to your routes -->
+    <button mat-button [routerLink]="['/home']" [routerLinkActive]="'active'">
+      Home
+    </button>
+
+    <!-- <div class="dropdown"> -->
+      <button
+        mat-button
+        [routerLink]="['/properties']"
+        [routerLinkActive]="'active'"
+      >
+        Properties
+      </button>
+      <!-- <div class="dropdown-content">
+        <a [routerLink]="['/properties', 1]">Justina Mountains</a>
+        <a [routerLink]="['/properties', 2]">Nitzsche Loaf</a>
+        <a [routerLink]="['/properties', 3]">Metz Flat</a>
+        <a [routerLink]="['/properties', 4]">Hilpert Loaf</a>
+        <a [routerLink]="['/properties', 5]">Wyman Rue</a>
+        <a [routerLink]="['/properties', 6]">Koch Trafficway</a>
+      </div>
+    </div> -->
+
+    <button mat-button [routerLink]="['/agents']" [routerLinkActive]="'active'">
+      Agents
+    </button>
+    <button
+      mat-button
+      [routerLink]="['/reviews']"
+      [routerLinkActive]="'active'"
+    >
+      Review
+    </button>
+    <!-- <button mat-button [routerLink]="['/image-carousel']" [routerLinkActive]="'active'">3rdpage</button> -->
+
+    <button
+      *ngIf="!isLoggedIn()"
+      class="user-logo"
+      mat-button
+      [routerLink]="['/login']"
+      [routerLinkActive]="'active'"
+    >
+      Login
+    </button>
+
+    <div class="dropdown">
+      <button
+        *ngIf="isLoggedIn()"
+        class="user-logo"
+        mat-button
+        [routerLink]="['/login']"
+        [routerLinkActive]="'active'"
+      >
+        Hi, {{ getName() }}
+      </button>
+      <div class="dropdown-content">
+        <a class="Profile" (click)="profile()">Profile</a>
+        <a class="Logout" (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>

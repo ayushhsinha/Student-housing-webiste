@@ -1,0 +1,127 @@
+
+.roboto_Project {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 4.5em;
+  text-align: left;
+  text-align: left; /* Aligns text to the left */
+
+  opacity: 40%;
+  margin-bottom: 2px;
+  margin-left: 95px;
+  display: block; /* Each text is on a new line */
+
+}
+.project-title {
+  font-weight: 100;
+  font-size: 4.5em;
+  opacity: 80%;
+  margin-bottom: 0; /* No margin between "PROJECT" and "Justina Mountains" */
+  display: block; /* Each text on a new line */
+}
+
+.project-name {
+  font-weight: 700;
+  font-size: 4.5em;
+  margin-top: 40px;
+  opacity: 80%;
+  /* display: block; */
+  margin-bottom: 37px; 
+}
+
+.roboto_Lorum {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 4.5em;
+  text-align: left;
+  margin-top: 0px;
+  opacity: 80%;
+  
+}
+
+.roboto_Project,
+.roboto_Lorum {
+  display: block; /* Make sure the paragraphs are block elements */
+}
+
+
+
+
+
+
+/* Begin Of Project Lorum */
+
+
+  .grid-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+    align-items: center; /* Center items vertically */
+    justify-items: center; /* Center items horizontally */
+  }
+
+  .slider-controls {
+    display: flex;
+    flex-direction: row; /* Align buttons horizontally */
+    align-items: center;
+    justify-content: center;
+    margin-right: 70px;
+    opacity: 50%;
+  }
+  
+  .slider-counter {
+    margin-top: 40px; /* Space from the arrows above */
+    margin-right: 70px;
+    font-size: 1.5em; /* Adjust the font size as needed */
+    text-align: center; /* Center the text */
+    opacity: 40%;
+  }
+  
+
+.slider-controls button {
+  background-color: #fff; /* White background */
+  color: #000; /* Black arrow color */
+  border: 0.001px solid #000; /* Black border */
+  border-radius: 0; /* Square corners */
+  width: 60px; /* Width of the button */
+  height: 60px; /* Height of the button */
+  font-size: 1em; /* Size of the arrow, adjust as needed */
+  line-height: 28px; /* Aligns the arrow vertically */
+  text-align: center; /* Centers the arrow horizontally */
+  cursor: pointer;
+  margin: 0 10px; /* Space on the sides of the button */
+  display: flex; /* Using flexbox for centering */
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  transition: background-color 0.3s, color 0.3s; /* Smooth color transition for hover effect */
+}
+
+  .slider-area {
+    position: relative; /* Needed for absolute positioning of the view project button */
+    flex: 1;
+  }
+  
+  .slider-area img {
+    width: 80%; /* Adjust this percentage to make the image smaller */
+    height: auto; /* This will maintain the aspect ratio */
+    margin: 0 auto; /* This will center the image in the container if desired */
+    display: block; /* This will remove any extra space around the image */
+}
+  
+  .view-project-btn {
+    position: absolute; /* Position the button over the image */
+    bottom: 0vw; /* Position at the bottom of the image */
+    left: 4vw; /* Position from the left of the image */
+    border: none;
+    background-color: rgb(255, 255, 255); /* Semi-transparent background */
+    cursor: pointer;
+    padding: 1vw 2vw;
+    font-size: 1.2vw;
+  }
+  
+
+
+

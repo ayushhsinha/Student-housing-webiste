@@ -1,0 +1,49 @@
+version: "3.9"
+name: dev
+
+services:
+  fontend:
+    hostname: ${FRONTEND_HOSTNAME}
+    build:
+      context: ./
+      dockerfile: ./client/Dockerfile
+      target: dev
+    ports:
+      - "${FRONTEND_PORT}:4200"
+    environment:
+      - PORT=${FRONTEND_PORT}
+      - NODE_ENV=development
+    volumes:
+      - ./client:/app:rw
+      - /app/node_modules
+    depends_on:
+      - backend
+    tty: true
+
+  backend:
+    hostname: ${BACKEND_HOSTNAME}
+    build:
+      context: server
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - "${BACKEND_PORT}:3000"
+    environment:
+      - PORT=${BACKEND_PORT}
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOSTNAME}
+      - DB_NAME=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    volumes:
+      - ./server:/app:rw
+      - /app/node_modules
+    tty: true
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    name: db_network

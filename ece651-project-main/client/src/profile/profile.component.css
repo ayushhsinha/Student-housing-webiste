@@ -1,0 +1,107 @@
+.background-image {
+  background-image: url(../assets/Slider06.png);
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.container {
+  font-family: Arial, sans-serif;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 3rem;
+  max-width: 800px;
+  min-height: 400px;
+  max-height: 800px;
+  height: 50%;
+  background-color: white;
+}
+
+.booking-container {
+  margin: 0 auto;
+  min-width: 400px;
+  padding: 2rem;
+}
+
+.booking-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.booking-details img {
+  width: 10rem;
+  height: 10rem;
+  padding: 0;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.booking-details span {
+  margin: 0;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.booking-details span:first-of-type {
+  font-weight: bold;
+}
+
+.booking-details span:last-of-type {
+  color: #666;
+}
+
+.booking-details span:last-of-type:before {
+  content: "•";
+  margin-right: 5px;
+}
+
+.booking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.booking-details-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.delete-button {
+  background-color: #dc2626;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.delete-button:hover {
+  background-color: #b91c1c; /* Darken the background color on hover */
+}
+
+.warning-box {
+  background-color: #fef08a;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.warning-box span {
+  font-weight: bold;
+  color: #333;
+}

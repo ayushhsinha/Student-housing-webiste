@@ -1,0 +1,27 @@
+<!-- Grid container -->
+<div class="grid-container">
+    <!-- Left side: Text, arrows, and counter -->
+    
+    <div class="text-slider-container">
+      <div class="text-area">
+        <p class="project-title">PROJECT</p>
+        <p class="project-name">{{ currentProjectName }}</p>
+      </div>
+      <div class="slider-controls">
+        <button mat-flat-button (click)="prevProject()">←</button>
+        <button mat-flat-button (click)="nextProject()">→</button>
+      </div>
+      <div 
+      
+      class="slider-counter"(click)="viewProject()" >{{ currentProjectIndex + 1 }} / {{ projects.length }}</div>
+    </div> 
+    <!-- Right side: Image and 'VIEW PROJECT' button -->
+    <div class="image-view-container">
+      <div class="slider-area">
+        <img [src]="projects[currentProjectIndex].image" alt="Project Image">
+        <button class="view-project-btn" (click)="viewProject()">VIEW PROJECT →</button>
+      </div>
+    </div>
+
+</div>
+  

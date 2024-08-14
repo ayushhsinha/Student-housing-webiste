@@ -1,0 +1,21 @@
+version: "3.9"
+name: db-push
+
+services:
+  pusher:
+    build:
+      context: ./server
+      dockerfile: PushData.Dockerfile
+    environment:
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOSTNAME}
+      - DB_NAME=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+      - CONFIG_PATH=db/config.ts
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    name: db_network

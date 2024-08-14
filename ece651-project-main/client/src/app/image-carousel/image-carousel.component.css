@@ -1,0 +1,233 @@
+
+  .image-grid-fixed-container {
+    position: absolute;
+    width: 1116;
+    height: 65%;
+    left: 0;
+    top: 82px;
+    margin-bottom: 50px;
+    background: #fdfdfd;
+    overflow: hidden;
+    
+    z-index: 10; /* Ensure it's above other content */
+  }
+  
+  .image-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-rows: .5fr .5fr; */
+    gap: 10px;
+    margin-top: 50px;
+    width: auto;
+    height: auto;
+    max-height: auto;
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Assuming you want a shadow effect */
+  }
+  
+  .main-image {
+    grid-column: 1 / span 2; /* Main image spans the first three columns */
+    grid-row: 1 / span 1; /* Main image spans both rows */
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);  /* This will cover the area without stretching */
+    
+  }
+  
+  .side-image {
+    grid-column: 4; /* Side images take up the fourth column */
+    grid-row: 2; /* Auto place rows or define span if needed */
+  }
+  
+  .side-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  }
+  .middle-image {
+    grid-column: 4; /* Side images take up the fourth column */
+    grid-row: 2; /* Auto place rows or define span if needed */
+  }
+  
+  .middle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+  }
+  body {
+    background-color: #2C2B2B; /* Sets the background to black */
+    color: #ffffff; /* Sets the text color to white for contrast */
+  }
+  .enquiry-and-features-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    bottom: -20px; /* Adjust according to your layout */
+    width: 100%;
+  }
+  .price-info {
+    /* display: inline-block; */
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    align-items: left;
+    justify-content: center;
+    padding: 50px;
+    background-color: #ffffff; /* White background for the price info */
+    padding-bottom: 20px;
+    /* margin-top: 20px; */
+    bottom: 0; /* Position at the bottom of the image grid container */
+    width: 100%; /* Match the width of the image grid container */
+  }
+  
+  .price {
+    color: #2C2B2B; /* Black color for the price */
+    font-size: 2rem; /* Larger font size for the price */
+    font-weight: bold; /* Make the price bold */
+    margin-bottom: 10px; /* Space below the price */
+  }
+  
+  .details {
+    font-size: 1rem;
+    color: #2C2B2B; /* Gray color for details */
+  }
+  
+  .enquire-button {
+    background-color: #d2d2d2; /* Example button color */
+    border: none;
+    align-items: left;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 10%;
+  }
+  
+  /* Use the Unicode character codes for icons if you do not have actual icons */
+  .bedrooms:before {
+    content: "\1F6CF"; /* Bed icon */
+    margin-right: 5px;
+  }
+  
+  .bathrooms:before {
+    content: "\1F6C1"; /* Bathtub icon */
+    margin-right: 5px;
+  }
+  
+  .features-section {
+    margin: 40px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .features-section h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    align-items: center;
+  }
+  
+  .features-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px; /* Adjust as needed */
+    width: 120px; /* Adjusted width */
+    padding: 10px; /* Added padding */
+  border: 2px solid #ddd; /* Added border */
+  border-radius: 10px; /* Rounded corners for the border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+  background-color: #e8e8e8;
+  }
+  
+  .mat-icon {
+    font-size: 25px; /* Size of the icon */
+    margin-bottom: 8px;
+  }
+
+  .feature-item:hover {
+  border-color: #aaa; /* Darken border on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Enhance shadow on hover for more depth */
+}
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .features-icons {
+      flex-direction: column;
+    }
+  }
+  /* Existing CSS ... */
+
+.availability-section {
+  /* padding: 60px; */
+  /* margin: 40px; */
+  margin-top: 40px;
+  margin-bottom: 100px;
+  margin-left: 40px;
+  margin-right: 200px;
+  background-color: #ffffff; /* Match the background of the price info */
+  text-align: center; /* Centers the content */
+  width: 100%; /* Ensure full width */
+  /* align-items: center; */
+  justify-content: center;
+  position: relative;
+}
+.features-section h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  align-items: center;
+}
+
+.availability-item {
+  display: inline-flex; /* Changed to inline-flex for centering in text-align */
+  flex-direction: column;
+  align-items: center;
+  margin: 15px; /* Adjust as needed */
+  width: 120px; /* Adjusted width */
+}
+
+.availability-button {
+  font-size: 1em; /* Set the font size as needed */
+  padding: 10px 15px; /* Adjust padding as needed */
+  margin-bottom: 8px;
+  border: none;
+  background-color: #1d1d1d; /* Change button background color as needed */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners for buttons */
+  
+  
+}
+
+.availability-name {
+  font-size: 1.2em; /* Bigger text for availability names */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .availability-item {
+    width: 100%; /* Full width for smaller screens */
+    margin: 15px auto; /* Centered margin for smaller screens */
+  }
+}
+
+/* Other existing CSS ... */
+.available {
+  background-color: rgb(42, 108, 42);
+}
+
+.not-available {
+  background-color: rgb(215, 89, 89);
+}

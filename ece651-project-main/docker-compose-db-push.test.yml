@@ -1,0 +1,21 @@
+version: "3.9"
+name: db-push-test
+
+services:
+  pusher:
+    build:
+      context: ./server
+      dockerfile: PushData.Dockerfile
+    environment:
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOSTNAME}
+      - DB_NAME=testdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgrestest
+      - CONFIG_PATH=db/config.ts
+    networks:
+      - proxynet_test
+
+networks:
+  proxynet_test:
+    name: db_network_test

@@ -1,0 +1,40 @@
+name: e2e-test
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create env
+        run: |
+          echo "BACKEND_PORT=3000" >> $GITHUB_ENV 
+          echo "FRONTEND_PORT=4200" >> $GITHUB_ENV 
+          echo "DB_PORT=5432" >> $GITHUB_ENV 
+          echo "FRONTEND_HOSTNAME=frontend" >> $GITHUB_ENV
+          echo "BACKEND_HOSTNAME=backend" >> $GITHUB_ENV
+          echo "DB_HOSTNAME=db" >> $GITHUB_ENV
+      - name: Run Dev DB Serv
+        run: npm run db-up
+      - name: Push schema to test DB server
+        run: npm run db-push
+      - name: Seed DB
+        run: npm run seed
+      - name: Install `Xvfb` and others to run browsers for end-to-end testing in local CI/CD simulations
+        if: ${{ env.ACT }}
+        run: sudo apt-get update && sudo apt-get install -y xvfb && npx playwright install-deps
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          wait-on: "http://localhost:4200"
+          wait-on-timeout: 120
+          browser: electron
+          spec: "cypress/e2e/dormify/**/*.cy.js"

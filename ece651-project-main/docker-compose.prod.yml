@@ -1,0 +1,28 @@
+version: "3.9"
+name: prod
+
+services:
+  fontend:
+    hostname: ${FRONTEND_HOSTNAME}
+    build:
+      context: ./
+      dockerfile: ./client/Dockerfile
+      target: prod
+    ports:
+      - "${FRONTEND_PORT}:4200"
+    environment:
+      - PORT=${FRONTEND_PORT}
+    depends_on:
+      - backend
+
+  backend:
+    hostname: ${BACKEND_HOSTNAME}
+    build:
+      context: server
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - "${BACKEND_PORT}:3000"
+    environment:
+      - PORT=${BACKEND_PORT}
+      - LOG_LEVEL=info

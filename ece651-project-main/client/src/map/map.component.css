@@ -1,0 +1,7 @@
+#map {
+    height: 400px;
+    width: calc(100% - 100px);
+    /* Subtract the desired total margin from the width */
+    margin: 0 50px;
+    /* This adds a margin of 20px on both the left and right */
+}

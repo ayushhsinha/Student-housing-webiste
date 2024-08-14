@@ -1,0 +1,24 @@
+version: "3.9"
+name: db-dev
+
+services:
+  db:
+    hostname: ${DB_HOSTNAME}
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+      - POSTGRES_DB=db
+      - PGPORT=${DB_PORT}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    networks:
+      - proxynet
+
+volumes:
+  db_volume:
+    driver: local
+
+networks:
+  proxynet:
+    name: db_network

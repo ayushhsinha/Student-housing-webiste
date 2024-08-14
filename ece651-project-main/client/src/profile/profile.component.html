@@ -1,0 +1,45 @@
+<div class="background-image">
+  <app-header></app-header>
+  <div class="content">
+    <div *ngIf="user" class="container">
+      <h1>Welcome {{ user.firstname }} {{ user.lastname }}</h1>
+
+      <div *ngIf="!user.verified_email" class="warning-box">
+        <span>Please verify your email</span>
+      </div>
+
+      <div class="booking-container">
+        <h2>Your bookings</h2>
+        <div *ngIf="!bookings.length">No bookings yet</div>
+        <ul *ngFor="let bookingResponse of bookings" class="booking-list">
+          <li>
+            <div class="booking-details">
+              <img
+                *ngIf="bookingResponse.pictures"
+                [src]="bookingResponse.pictures[0]"
+              />
+              <div class="booking-details-text">
+                <span
+                  >{{ bookingResponse.units.name }} at
+                  {{ bookingResponse.property_name }}</span
+                >
+                <span>
+                  {{ bookingResponse.bookings.start_date }} -
+                  {{ bookingResponse.bookings.end_date }}
+                </span>
+                <span>Status: {{ bookingResponse.bookings.status }}</span>
+                <form
+                  (ngSubmit)="deleteBooking(bookingResponse.bookings.public_id)"
+                >
+                  <button type="submit" class="delete-button">
+                    Cancel Booking
+                  </button>
+                </form>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

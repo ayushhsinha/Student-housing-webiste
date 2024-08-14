@@ -1,0 +1,57 @@
+<!-- contact-form.component.html -->
+<div class="content-background">
+  <!-- <div class="flex-container">  -->
+    <div class="main-container">
+      <div class="left-text">
+        <div class="roboto_A">CONTACT</div>
+        <div class="roboto_B">US</div>
+      </div>
+
+<div class="example-container" [formGroup]="contactForm">
+  <div class="form-field">  
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Enter your first name" formControlName="firstname" required>
+    </mat-form-field>
+  </div>
+  <div class="form-field">
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Enter your last name" formControlName="lastname" required>
+    </mat-form-field>
+  </div>
+  <div class="form-field">
+    <mat-form-field>
+      <mat-label>Phone Number</mat-label>
+      <input matInput placeholder="Enter your phone number" formControlName="phone_number" required>
+    </mat-form-field>
+    </div>
+    <div class="form-field" >
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Enter your email" formControlName="email" required>
+      <mat-error *ngIf="contactForm.get('email')?.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    </div>
+    <div class="form-field">
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <textarea matInput placeholder="Message" formControlName="message" required></textarea>
+      <mat-error *ngIf="contactForm.get('message')?.hasError('required')">Message is required</mat-error>
+    </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="onSubmit()" type="submit">Submit</button>
+
+    
+    
+    
+   </div>
+  
+  </div>
+  <div class="image-container">
+   <img src="assets/contactusimage.jpg" alt="contactus">
+  </div>
+  </div>
+
+  

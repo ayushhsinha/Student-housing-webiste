@@ -1,0 +1,130 @@
+:host {
+    flex: 1;
+  }
+  
+  .carousel {
+    position: relative;
+    height: 60vh;
+    width: 60vw;
+    overflow: hidden;
+    border-radius: 0.5em;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+    border-radius: 0.5em;
+  }
+  
+  .slide:hover {
+    transform: scale(1.025);
+  }
+  
+  .control {
+    border: none;
+    background-color: transparent;
+    outline: 0; 
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5em;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    user-select: none;
+    height: 100%;
+    opacity: 80%;
+    transition: opacity 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+  
+    &:hover, &:focus {
+      opacity: 1;
+    }
+  
+    /* Position the buttons */
+    &.next {
+      right: 0;
+    }
+    &.prev {
+      left: 0;
+    }
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 19vh;
+    margin-top: 12vh;
+
+  }
+  
+  .header-text {
+    margin-bottom: 1rem; /* Adjust the space between text and carousel */
+    font-size: 1.5rem; /* Adjust text size as needed */
+    font-weight: bold;
+  }
+  
+  /* Adjust carousel styles if necessary to center it */
+  .carousel {
+    margin: 0 auto; /* This helps to center the carousel if it's not inside a flex container */
+  }
+  
+  /* Add styles for property names */
+  .property-name {
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white; /* Change color as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 0.5rem;
+    border-radius: 0.5em;
+    font-size: 1vw;
+  }
+
+  /* style the arrows */
+  .arrow {
+    display: block;
+    border-left: 0.1em solid white;
+    border-bottom: 0.1em solid white;
+    width: 0.5em;
+    height: 0.5em;
+  
+    &.left {
+      transform: rotate(45deg);
+    }
+    &.right {
+      transform: rotate(225deg);
+    }
+  }
+
+  .text_A {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-size: 0.5vw;
+    color: #414040;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.132);
+    font-size: 2vw;
+    margin-bottom: 3vh;
+    margin-top: 1vh;
+}
+
+.text_B {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-size: 1.5vw;
+    color: #414040;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.132);
+    font-size: 1vw;
+    margin-bottom: 1.5vh;
+}

@@ -1,0 +1,18 @@
+FROM oven/bun as base
+
+ARG DB_PORT
+ARG DB_HOST
+ARG DB_NAME
+ARG POSTGRES_USER
+ARG POSTGRES_PASSWORD
+
+ENV DB_PORT ${DB_PORT}
+ENV DB_HOST ${DB_HOST}
+ENV DB_NAME ${DB_NAME}
+ENV POSTGRES_USER ${POSTGRES_USER}
+
+COPY package.json .
+RUN bun install
+COPY ./db ./db
+
+CMD bun run ./db/seed.ts

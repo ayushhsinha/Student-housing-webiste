@@ -1,0 +1,40 @@
+{
+  "name": "dormify",
+  "version": "0.0.1",
+  "scripts": {
+    "db-up": "(docker compose -f docker-compose-db.dev.yml up -d || sudo docker compose -f docker-compose-db.dev.yml up -d)",
+    "db-down": "(docker compose -f docker-compose-db.dev.yml down || sudo docker compose -f docker-compose-db.dev.yml down)",
+    "db-push": "(docker compose -f docker-compose-db-push.dev.yml build || sudo docker compose -f docker-compose-db-push.dev.yml build) && (docker compose -f docker-compose-db-push.dev.yml up --force-recreate || sudo docker compose -f docker-compose-db-push.dev.yml up --force-recreate)",
+    "db-push-test": "(docker compose -f docker-compose-db-push.test.yml build || sudo docker compose -f docker-compose-db-push.test.yml build) && (docker compose -f docker-compose-db-push.test.yml up --force-recreate || sudo docker compose -f docker-compose-db-push.test.yml up --force-recreate)",
+    "db-up-test": "(docker compose -f docker-compose-db.test.yml up -d || sudo docker compose -f docker-compose-db.test.yml up -d)",
+    "db-down-test": "(docker compose -f docker-compose-db.test.yml down || sudo docker compose -f docker-compose-db.test.yml down)",
+    "build-test-backend": "(docker compose -f docker-compose-backend.test.yml build || sudo docker compose -f docker-compose-backend.test.yml build)",
+    "run-test-backend": "(docker compose -f docker-compose-backend.test.yml up --renew-anon-volumes --force-recreate --exit-code-from backend || sudo docker compose -f docker-compose-backend.test.yml up --renew-anon-volumes --force-recreate --exit-code-from backend)",
+    "build-dev": "(docker compose -f docker-compose.dev.yml build || sudo docker compose -f docker-compose.dev.yml build)",
+    "run-dev": "(docker compose -f docker-compose.dev.yml up --renew-anon-volumes --force-recreate || sudo docker compose -f docker-compose.dev.yml up --renew-anon-volumes --force-recreate)",
+    "seed": "(docker compose -f docker-compose-db-seed.yml build || sudo docker compose -f docker-compose-db-seed.yml build) && (docker compose -f docker-compose-db-seed.yml up --force-recreate || sudo docker compose -f docker-compose-db-seed.yml up --force-recreate)",
+    "dev": "npm run build-dev && npm run run-dev",
+    "test-backend": "npm run db-up-test && sleep 1 && (npm run db-push-test && npm run build-test-backend && npm run run-test-backend); npm run db-down-test",
+    "build-prod": "docker compose -f docker-compose.prod.yml build",
+    "run-prod": "docker compose -f docker-compose.prod.yml up",
+    "prod": "npm run build-prod && npm run run-prod",
+    "input-env": "cd env-builder && (pip3 install -r requirements.txt || pip install -r requirements.txt) && python3 build-env.py && python3 generate-env.py && cd .. && echo \"Successfully generated constants\"",
+    "generate-constants": "cd env-builder && (pip3 install -r requirements.txt || pip install -r requirements.txt) && python3 generate-env.py && cd .. && echo \"Successfully generated constants\""
+  },
+  "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
+    "@angular/cli": "^17.3.3",
+    "@coreui/coreui": "^5.0.0",
+    "@googlemaps/js-api-loader": "^1.16.6",
+    "drizzle-kit": "^0.20.14",
+    "esbuild": "^0.18.20",
+    "n": "^9.2.1",
+    "npm": "^10.5.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.55.3",
+    "@types/uuid": "^9.0.8",
+    "cypress": "^13.7.1"
+  }
+}

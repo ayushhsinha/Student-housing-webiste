@@ -1,0 +1,32 @@
+name: backend-test
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create env
+        run: |
+          echo "BACKEND_PORT=3000" >> $GITHUB_ENV 
+          echo "FRONTEND_PORT=4200" >> $GITHUB_ENV 
+          echo "DB_PORT=5432" >> $GITHUB_ENV 
+          echo "FRONTEND_HOSTNAME=frontend" >> $GITHUB_ENV
+          echo "BACKEND_HOSTNAME=backend" >> $GITHUB_ENV
+          echo "DB_HOSTNAME=db" >> $GITHUB_ENV
+      - name: Run Test DB Server
+        run: npm run db-up-test
+      - name: Push schema to test DB server
+        run: npm run db-push-test
+      - name: Build tests
+        run: npm run build-test-backend
+      - name: Run tests
+        run: npm run run-test-backend
+      - name: Teardown DB
+        run: npm run db-down-test

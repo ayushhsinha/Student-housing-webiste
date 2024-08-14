@@ -1,0 +1,20 @@
+version: "3.9"
+name: db-seed
+
+services:
+  seeder:
+    build:
+      context: ./server
+      dockerfile: SeedData.Dockerfile
+    environment:
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOSTNAME}
+      - DB_NAME=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    name: db_network

@@ -1,0 +1,122 @@
+.container {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(../assets/image.png-2.webp); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 510px;
+    min-width: 400px;
+    height: 654px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.Form-section {
+    margin-top:2em;
+}
+
+mat-form-field {
+    width: 100%;
+    outline: none;
+}
+
+.submitButton {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 23px;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+    width: 100%;
+}
+
+.logo {
+    margin-top:-16px;
+    text-align: center;
+    height: 135px;
+}
+
+.logo img {
+    display: inline-block;
+}
+
+.example-container {
+    position: relative;
+}
+
+.forgot-password {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 62px;
+    color: blue;
+    text-decoration: none;
+}
+
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-now {
+    color: blue;
+    text-decoration: none;
+}
+
+.signup-now:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 23px;
+}
+
+.button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100px;
+}
+
+.button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: -5px; 
+}
+
+.button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.button.active {
+    background-color: #0056b3; 
+}
+

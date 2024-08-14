@@ -1,0 +1,24 @@
+<!-- <div class="container-fluid py-3">
+    <div id="map"></div>
+</div> -->
+
+<!-- <div>
+    <h2>Welcome to the New Component!</h2>
+    Your component content goes here -->
+<!-- </div> -->
+
+<!-- making parent div, to seperapte two divs map_container and image_container -->
+
+<div class="parent-container">
+    <div class="map_container">
+        <div id="map">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+                integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        </div>
+    </div>
+    <div class="image-container">
+        <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" alt="Selected Image">
+    </div>
+</div>

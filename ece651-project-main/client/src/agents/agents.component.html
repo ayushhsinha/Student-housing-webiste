@@ -1,0 +1,18 @@
+<p>Agents Component</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *NgFor="let agent of agents">
+      <td>{{ agent.property_name }}</td>
+      <td>{{ agent.latitude }}</td>
+      <td>{{ agent.longitude }}</td>
+    </tr>
+  </tbody>
+</table>

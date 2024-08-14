@@ -1,0 +1,20 @@
+version: "3.9"
+name: db-test
+
+services:
+  db:
+    hostname: ${DB_HOSTNAME}
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgrestest
+      - POSTGRES_DB=testdb
+      - PGPORT=${DB_PORT}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    networks:
+      - proxynet_test
+
+networks:
+  proxynet_test:
+    name: db_network_test

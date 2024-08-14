@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="text_A">
+      Discover Our Another Properties
+    </div>
+    <div class="text_B">
+        Other project by us in different location
+      </div>
+    <div class="carousel">
+      <ng-container *ngFor="let slide of slides; let i = index">
+        <img *ngIf="i === currentSlide" [src]="slide.src" class="slide" />
+        <div *ngIf="i === currentSlide" class="property-name">{{ slide.headline }}</div>
+      </ng-container>
+  
+      <!-- controls -->
+      <button class="control prev" (click)="onPreviousClick()">
+        <span class="arrow left"></span>
+      </button>
+      <button class="control next" (click)="onNextClick()">
+        <span class="arrow right"></span>
+      </button>
+    </div>
+  </div>
+  

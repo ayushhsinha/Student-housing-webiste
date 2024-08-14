@@ -1,0 +1,16 @@
+export const API_ENDPOINTS = {
+  login: '/auth/login',
+  signup: '/auth/signup',
+  properties: '/properties',
+  agents: '/agents',
+  reviews: '/reviews',
+  contact: '/contact',
+  account: '/account',
+  rentahome: '/renting',
+  buyahome: '/buying',
+  sellahome: '/selling',
+  maplocation: '/partners/location',
+  logout: '/auth/logout',
+  submitContactForm: '/submitContactForm',
+  profile: '/auth/profile',
+};

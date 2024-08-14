@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="contactForm.firstname" name="firstname" required>
+    <input type="text" [(ngModel)]="contactForm.lastname" name="lastname" required>
+    <input type="email" [(ngModel)]="contactForm.email" name="email" required>
+    <input type="tel" [(ngModel)]="contactForm.phone_number" name="phone_number" required>
+    <textarea [(ngModel)]="contactForm.message" name="message" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  
